@@ -1,0 +1,41 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Judgement : MonoBehaviour
+{
+  public GameObject knife;
+  float slashposition;
+  int score;
+  
+  void Update()
+  {
+    //손의 기즈모를 중심으로 하여, 칼이 써는 위치에 따른 결과 출력
+    slashposition = Vector3.Distance(gameObject.transform.position, knife.transform.position);
+    
+    if (slashposition <= 1f)
+    {
+      print(SMoKiN' HoT);
+      
+      score = score + 100;
+      print("score: " + 100);
+    }
+    else if (slashposition <= 2f)
+    {
+      print(SiCK SKiLLS);
+      
+      score = score + 80;
+      print("score: " + 80);
+    }
+    else if (slashposition <= 3f)
+    {
+      print(SaVaGe);
+      
+      score = score + 60;
+      print("score: " + 60);
+    }
+    else
+    {
+      print("CRaZY...");
+    }
+}
