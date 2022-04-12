@@ -1,0 +1,16 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class KnifeDegree : MonoBehabiour
+{
+  float height = 0;
+  private Vector3 AngleToDirection(float angle)
+  {
+    Vector3 direction = transform.forward; //기준 방향
+    
+    var Quatermiom = Quaternion.Euler(0, angle, 0);
+    Vector3 newdirection = quaternion * direction;
+    return newdirection;
+  }
+}
