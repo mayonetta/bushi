@@ -1,0 +1,71 @@
+using Sysem.Collections;
+using Sysem.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Menu : MonoBehavior
+{
+  public text menu;
+  
+  int pickitup = 0;
+  
+  void start()
+  {
+    pickitup = Random.Range(0, 5);
+    
+    if (pickitup == 0)
+    {
+      menu.text = "야키소바";
+    }
+    else if (pickitup == 1)
+    {
+      menu.text = "마제소바";
+    }
+    else if (pickitup == 2)
+    {
+      menu.text = "나폴리탄";
+    }
+    else if (pickitup == 3)
+    {
+      menu.text = "성게알 크레송";
+    }
+    else 
+    {
+      menu.text = "고야 참푸루";
+    }
+  }
+  
+  public void Takingtheorder()
+  {
+    int usingingredients = 10;
+    
+    if (pickitup == 0)
+    {
+      IngredientsManager.GetInstance().SubVeges(usingingredients);
+      IngredientsManager.GetInstance().SubMeats(usingingredients);
+      IngredientsManager.GetInstance().SubFishes(usingingredients);
+    }
+    else if (pickitup == 1)
+    {
+      IngredientsManager.GetInstance().SubVeges(usingingredients);
+      IngredientsManager.GetInstance().SubMeats(usingingredients);
+    }
+    else if (pickitup == 2)
+    {
+      IngredientsManager.GetInstance().SubVeges(usingingredients);
+      IngredientsManager.GetInstance().SubMeats(usingingredients);
+    }
+    else if (pickitup == 3)
+    {
+      IngredientsManager.GetInstance().SubVeges(usingingredients);
+      IngredientsManager.GetInstance().SubFishes(usingingredients);
+    }
+    else
+    {
+      IngredientsManager.GetInstance().SubVeges(usingingredients);
+      IngredientsManager.GetInstance().SubMeats(usingingredients);
+    }
+    
+    Destroy(menu);
+  }
+}
