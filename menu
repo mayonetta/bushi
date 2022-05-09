@@ -7,7 +7,32 @@ public class Menu : MonoBehavior
 {
   public text menu;
   
+  [Header("재료 드랍 위치")]
+  public Transform wichi1;
+  public Transform wichi2;
+  public Transform wichi3;
+  public Transform wichi4;
+  
+  [Header("재료들")]
+  public GameObject cresson;
+  public GameObject dubu;
+  public GameObject gim;
+  public GameObject gogi;
+  public GameObject gyeran;
+  public GameObject jeongguji;
+  public GameObject ojingeo;
+  public GameObject pimang;
+  public GameObject saeu;
+  public GameObject seonggeal;
+  public GameObject soseji;
+  public GameObject sunpa;
+  public GameObject yangbaechu;
+  public GameObject yangpa;
+  public GameObject yeoju;
+  
   int pickitup = 0;
+  
+  WaitForSeconds delay;
   
   void start()
   {
@@ -44,28 +69,78 @@ public class Menu : MonoBehavior
       IngredientsManager.GetInstance().SubVeges(usingingredients);
       IngredientsManager.GetInstance().SubMeats(usingingredients);
       IngredientsManager.GetInstance().SubFishes(usingingredients);
+      
+      for (int i = 0; i < 5; i++)
+      {
+        delay = new WaitForSeconds(3f * Time.deltaTime);
+        
+        Instantiate(yangbaechu, wichi1.position, wichi1.rotation);
+        Instantiate(gogi, wichi2.position, wichi2.rotation);
+        Instantiate(saeu, wichi3.position, wichi3.rotation);
+        Instantiate(ojingeo, wichi4.position, wichi4.rotation);
+      }
     }
     else if (pickitup == 1)
     {
       IngredientsManager.GetInstance().SubVeges(usingingredients);
       IngredientsManager.GetInstance().SubMeats(usingingredients);
+      
+      for (int i = 0; i < 5; i++)
+      {
+        delay = new WaitForSeconds(3f * Time.deltaTime);
+        
+        Instantiate(jeongguji, wichi1.position, wichi1.rotation);
+        Instantiate(sunpa, wichi2.position, wichi2.rotation);
+        Instantiate(gim, wichi3.position, wichi3.rotation);
+        Instantiate(gogi, wichi4.position, wichi4.rotation);
+      }
     }
     else if (pickitup == 2)
     {
       IngredientsManager.GetInstance().SubVeges(usingingredients);
       IngredientsManager.GetInstance().SubMeats(usingingredients);
+      
+      for (int i = 0; i < 5; i++)
+      {
+        delay = new WaitForSeconds(3f * Time.deltaTime);
+        
+        Instantiate(pimang, wichi1.position, wichi1.rotation);
+        Instantiate(yangpa, wichi2.position, wichi2.rotation);
+        Instantiate(soseji, wichi3.position, wichi3.rotation);
+        Instantiate(gyeran, wichi4.position, wichi4.rotation);
+      }
     }
     else if (pickitup == 3)
     {
       IngredientsManager.GetInstance().SubVeges(usingingredients);
       IngredientsManager.GetInstance().SubFishes(usingingredients);
+      
+      for (int i = 0; i < 5; i++)
+      {
+        delay = new WaitForSeconds(3f * Time.deltaTime);
+        
+        Instantiate(cresson, wichi1.position, wichi1.rotation);
+        Instantiate(cresson, wichi2.position, wichi2.rotation);
+        Instantiate(seonggeal, wichi3.position, wichi3.rotation);
+        Instantiate(seonggeal, wichi4.position, wichi4.rotation);
+      }
     }
     else
     {
       IngredientsManager.GetInstance().SubVeges(usingingredients);
       IngredientsManager.GetInstance().SubMeats(usingingredients);
+      
+      for (int i = 0; i < 5; i++)
+      {
+        delay = new WaitForSeconds(3f * Time.deltaTime);
+        
+        Instantiate(dubu, wichi1.position, wichi1.rotation);
+        Instantiate(yeoju, wichi2.position, wichi2.rotation);
+        Instantiate(gogi, wichi3.position, wichi3.rotation);
+        Instantiate(gyeran, wichi4.position, wichi4.rotation);
+      }
     }
     
-    Destroy(menu);
+    this.gameObject.SetActive(false);
   }
 }
