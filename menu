@@ -7,6 +7,8 @@ public class Menu : MonoBehavior
 {
   public text menu;
   
+  public GameObject lefthand;
+  
   [Header("재료 드랍 위치")]
   public Transform wichi1;
   public Transform wichi2;
