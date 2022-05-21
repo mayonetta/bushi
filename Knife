@@ -1,0 +1,72 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Knife : MonoBehaviour
+{
+  Rigidbody rigidbody;
+  
+  public GameObject razerposition;
+  
+  int pieces;
+  
+  void Start()
+  {
+    rigidbody = GetComponent<Rigidbody>();
+    
+    pieces = 0;
+  }
+  
+  void OnTriggerEnter(Collider collider)
+  {
+    if (collider.gameObject.CompareTag("DOMA")
+    {
+      Gijutsu();
+    }
+  }
+  
+  void OnTriggerExit(Collider collider)
+  {
+    if (collider.gameObject.CompareTag("VEGE")
+    {
+      Refrigerator += pieces;
+    }
+    else if (collider.gameObject.CompareTag("MEAT"))
+    {
+      Refrigerator += pieces;
+    }
+    else if (collider.gameObject.CompareTag("SEAFOOD")
+    {
+      Refrigerator += pieces;
+    }
+  }
+  
+  void Gijutsu()
+  {
+    Debug.DrawRay(razerposition.transform.position + transform.forward + (transform.forward * -1f), Quaternion.Euler(0, 0, 0) * new Vector3(1, 0, 0) * 3, Color.green);
+    
+    Ray ray = new Ray(razerposition.transform.position + transform.forward + (transform.forward * -1f), Quaternion.Euler(0, 0, 0) * new Vector3(1, 0, 0) * 3, Color.green);
+    RaycastHit detection;
+    int layermask = 1 << LayerMask.NameToLayer("KNIFE");
+    
+    if (Physics.Raycast(ray, out detection, 3f, layermask))
+    {
+      if (hit.distance <= 0.1f)
+      {
+        pieces = 30;
+      }
+      else if (hit.distance <= 0.2f)
+      {
+        pieces = 20;
+      }
+      else if (hit.distance <= 0.1f)
+      {
+        pieces = 10;
+      }
+      else if (hit.distance == 0)
+      {
+        pieces = 0;
+      }
+    }
+  }
+}
